@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fluxo de Caixa</title>
+    <title>Fluxo de Caixa Inteligente</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,21 +11,36 @@
     <div class="container">
         <h1>Controle de Fluxo de Caixa</h1>
 
-        <input type="text" id="descricao" placeholder="Descrição">
-        <input type="number" id="valor" placeholder="Valor">
+        <input type="text" id="descricao" placeholder="Descrição do produto">
+        <input type="number" id="quantidade" placeholder="Quantidade">
+        <input type="number" id="valor" placeholder="Valor unitário">
 
         <select id="tipo">
             <option value="entrada">Entrada</option>
             <option value="saida">Saída</option>
         </select>
 
-        <button onclick="adicionarTransacao()">Adicionar</button>
+        <button onclick="adicionarTransacao()">Adicionar Transação</button>
 
-        <h2>Saldo: R$ <span id="saldo">0.00</span></h2>
+        <h2>Saldo Atual: R$ <span id="saldo">0.00</span></h2>
 
         <ul id="lista"></ul>
+
+        <div class="relatorios">
+            <h2>Relatórios</h2>
+
+            <button onclick="gerarRelatorioDia()">Relatório do Dia</button>
+            <button onclick="gerarRelatorioSemana()">Relatório da Semana</button>
+            <button onclick="gerarRelatorioMes()">Relatório do Mês</button>
+
+            <div id="relatorio"></div>
+
+            <canvas id="grafico"></canvas>
+        </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
