@@ -8,8 +8,22 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
+
+    <div id="auth-area">
+        <h1>Login / Cadastro</h1>
+
+        <input type="email" id="email" placeholder="Seu email">
+        <input type="password" id="senha" placeholder="Sua senha">
+
+        <button onclick="cadastrar()">Cadastrar</button>
+        <button onclick="login()">Entrar</button>
+    </div>
+
+    <div id="app-area" style="display:none;">
         <h1>Controle de Fluxo de Caixa</h1>
+
+        <button onclick="logout()">Sair</button>
 
         <input type="text" id="descricao" placeholder="Descrição do produto">
         <input type="number" id="quantidade" placeholder="Quantidade">
@@ -24,14 +38,16 @@
 
         <h2>Saldo Atual: R$ <span id="saldo">0.00</span></h2>
 
+        <h2>Últimas 10 Transações</h2>
         <ul id="lista"></ul>
 
         <div class="relatorios">
-            <h2>Relatórios</h2>
+            <h2>Relatório por Período</h2>
 
-            <button onclick="gerarRelatorioDia()">Relatório do Dia</button>
-            <button onclick="gerarRelatorioSemana()">Relatório da Semana</button>
-            <button onclick="gerarRelatorioMes()">Relatório do Mês</button>
+            <input type="date" id="dataInicio">
+            <input type="date" id="dataFim">
+
+            <button onclick="filtrarPeriodo()">Filtrar</button>
 
             <div id="relatorio"></div>
 
@@ -39,8 +55,10 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="script.js"></script>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="script.js"></script>
 
 </body>
 </html>
